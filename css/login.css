@@ -1,0 +1,123 @@
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px); /* Ocupa el alto de la pantalla descontando la nav */
+    padding-top: 100px; /* Evita que la nav fija (position: fixed) tape la tarjeta */
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+
+.login-container{
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 400px;
+    justify-content: center;
+    align-items: center;
+}
+/* Textos de encabezados de la tarjeta*/
+.login-header{
+    text-align: center;
+    margin-bottom: 28px;
+}
+/*textos del mensaje de "Ingresa a tu cuenta"*/
+.login-header h2{
+    color: #1e293b;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+/* color y tamaño del parrafo Ingresa tu cuenta a registrar*/
+.login-header p{
+    color: #64748b;
+    font-size: 16px;
+}
+/* tamaño de los grupos de correo electronico y contraseña*/
+.form-group{
+    margin-bottom: 20px;
+}
+/* etiquetas de correo y contraseña*/
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #334155;
+    font-size: 16px;
+}
+/* cajas de textos de correo y contraseña*/
+.form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+/* sombreado de bordes de las cajas de entrada*/
+.form-group input:focus {
+    outline: none;
+    border-color: #9CA860;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+/* Opcion de "Recordarme y Olvido su contraseña"*/
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+
+/* diseño de la funcionalidad de Recordarme*/
+.remember-me {
+    color: #475569;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+/*Diseño del boton de Olvido la contraseña*/
+.forgot-password {
+    color: #9CA860;
+    text-decoration: none;
+    font-weight: 500;
+}
+/*Diseño del boton de login*/
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #9CA860;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/*Diseño sombreado al colocar puntero en el boton*/
+.btn-login:hover {
+    background-color: #505731;
+}
+
+/* Pie de la tarjeta */
+.login-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+/* pie de ¿olvidaste la contraseña?*/
+.login-footer a {
+    color: #505731;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/*estilo al colocar el puntero encima de olvidaste la contraseña*/
+.login-footer a:hover {
+    text-decoration: underline;
+}
