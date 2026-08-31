@@ -1,3 +1,4 @@
+/* agrupacion de la caja de registrarse con las etiquetas*/
 .register-wrapper{
     display: flex;
     justify-content: center;
@@ -7,7 +8,7 @@
     padding-bottom: 40px;
     box-sizing: border-box;
 }
-
+/* solo la caja de registrarse*/
 .register-container{
     background: white;
     padding: 40px 30px;
@@ -18,10 +19,92 @@
     justify-content: center;
     align-items: center;
 }
-
+/* Textos de encabezados de la tarjeta*/
 .register-header{
     text-align: center;
     margin-bottom: 28px;
+}
+/* Diseño de encabezado "registro de usuario"*/
+.register-header h2{
+    color: #1e293b;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+/*Diseño de parrafo de "ingrese credenciales"*/
+.register-header p{
+    color: #64748b;
+    font-size: 16px;
+}
+/* margen de la etiquetas*/
+.form-group{
+    margin-bottom: 20px;
+}
+/*Diseño de etiquetas*/
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #334155;
+    font-size: 16px;
+}
+/* cajas de textos*/
+.form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* sombreado de bordes de las cajas de entrada*/
+.form-group input:focus {
+    outline: none;
+    border-color: #9CA860;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/*Diseño de los combo box*/
+select{
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    -webkit-appearance: none;
+}
+
+select:focus{
+    outline: none;
+    border-color: #9CA860;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+/*Diseño etiqueta de los combo box "Region y Comuna"*/
+.combo-box label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #334155;
+    font-size: 16px;
+}
+
+/*Diseño boton registrarse*/
+.btn-register{
+    width: 100%;
+    padding: 12px;
+    background-color: #9CA860;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-register:hover{
+    background-color: #505731;
 }
 
 .error-text {
