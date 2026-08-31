@@ -19,74 +19,122 @@ const comunasPorRegion = {
     "magallanes": ["Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos", "Antártica", "Porvenir", "Primavera", "Timaukel", "Natales", "Torres del Paine"]
 };
 
-// Referencias a los elementos del DOM
-const regionSelect = document.getElementById("region");
-const comunaSelect = document.getElementById("comuna");
+document.addEventListener('DOMContentLoaded', function () {
 
-// Escuchar los cambios en el select de regiones de forma limpia
-regionSelect.addEventListener("change", function() {
-    const regionSeleccionada = regionSelect.value;
+    // --- LÓGICA DE REGIONALIZACIÓN (Si existen los select) ---
+    const selectRegion = document.getElementById("region");
+    const selectComuna = document.getElementById("comuna");
 
-    // Resetear el select de comunas con el mensaje inicial básico
-    comunaSelect.innerHTML = '<option value="" disabled selected>Seleccione una comuna...</option>';
+    if (selectRegion && selectComuna) {
+        selectRegion.addEventListener("change", function () {
+            const regionSeleccionada = this.value;
+            selectComuna.innerHTML = '<option value="" disabled selected>---Seleccione una Comuna---</option>';
 
-    if (regionSeleccionada && comunasPorRegion[regionSeleccionada]) {
-        // Habilitar interacciones
-        comunaSelect.disabled = false;
-
-        // Poblar las nuevas opciones
-        comunasPorRegion[regionSeleccionada].forEach(comuna => {
-            const option = document.createElement("option");
-            option.value = comuna.toLowerCase().replace(/\s+/g, '-');
-            option.textContent = comuna;
-            comunaSelect.appendChild(option);
+            if (regionSeleccionada && comunasPorRegion[regionSeleccionada]) {
+                selectComuna.disabled = false;
+                comunasPorRegion[regionSeleccionada].forEach(comuna => {
+                    const option = document.createElement("option");
+                    option.value = comuna.toLowerCase().replace(/\s+/g, '-');
+                    option.textContent = comuna;
+                    selectComuna.appendChild(option);
+                });
+            } else {
+                selectComuna.disabled = true;
+            }
         });
-    } else {
-        // Bloquear si no hay selección de región válida
-        comunaSelect.disabled = true;
+    }
+
+    // --- LÓGICA DE REGISTRO (register.html) ---
+    const registerForm = document.getElementById("register-form");
+    if (registerForm) {
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("password-2");
+        const errorMessage = document.getElementById("error-message");
+
+        function validarContrasenas() {
+            if (!confirmPassword || confirmPassword.value === '') {
+                if (errorMessage) errorMessage.style.display = 'none';
+                return true;
+            }
+
+            if (password.value !== confirmPassword.value) {
+                if (errorMessage) errorMessage.style.display = 'block';
+                return false;
+            } else {
+                if (errorMessage) errorMessage.style.display = 'none';
+                return true;
+            }
+        }
+
+        if (password && confirmPassword) {
+            password.addEventListener('input', validarContrasenas);
+            confirmPassword.addEventListener('input', validarContrasenas);
+        }
+
+        registerForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            if (!validarContrasenas()) {
+                alert('Las contraseñas no coinciden.');
+                return;
+            }
+
+            const email = document.getElementById("reg-email").value;
+            const pass = password.value;
+            const region = selectRegion ? selectRegion.value : '';
+            const comuna = selectComuna ? selectComuna.value : '';
+
+            // Obtener lista previa o inicializar
+            let usuarios = JSON.parse(localStorage.getItem('usuarios_db')) || [];
+
+            // Validar si el correo ya existe
+            const existe = usuarios.find(u => u.email === email);
+            if (existe) {
+                alert('El correo electrónico ya se encuentra registrado.');
+                return;
+            }
+
+            // Crear objeto de usuario
+            const nuevoUsuario = {
+                email: email,
+                password: pass,
+                region: region,
+                comuna: comuna
+            };
+
+            // Guardar usuario en localStorage
+            usuarios.push(nuevoUsuario);
+            localStorage.setItem('usuarios_db', JSON.stringify(usuarios));
+
+            alert('¡Registro realizado con éxito! Serás redirigido al Inicio de Sesión.');
+            window.location.href = 'login.html';
+        });
+    }
+
+    // --- LÓGICA DE LOGIN (login.html) ---
+    const loginForm = document.getElementById("login-form");
+    if (loginForm) {
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const emailInput = document.getElementById("email").value;
+            const passwordInput = document.getElementById("password").value;
+
+            // Obtener usuarios guardados en localStorage
+            const usuarios = JSON.parse(localStorage.getItem('usuarios_db')) || [];
+
+            // Verificar credenciales
+            const usuarioValido = usuarios.find(u => u.email === emailInput && u.password === passwordInput);
+
+            if (usuarioValido) {
+                // Guardar la sesión activa
+                localStorage.setItem('usuario_logueado', JSON.stringify({ email: usuarioValido.email }));
+                alert('¡Inicio de sesión correcto!');
+                window.location.href = 'index.html'; // Redirige al menú principal
+            } else {
+                alert('Correo electrónico o contraseña incorrectos.');
+            }
+        });
     }
 });
-
-//====== LOGICA VALIDACION DE CONTRASEÑA EN REGISTER.HTML======
-
-//referencias a los elementos del formulario
-const password = document.getElementById("password");
-const confirmPassword = document.getElementById("password-2");
-const errorMessage = document.getElementById("error-message");
-const form = document.querySelector(".login-form");
-
-// Función que compara ambas contraseñas
-function validarContrasenas() {
-    // Si la confirmación está vacía, ocultar mensaje
-    if (confirmPassword.value === '') {
-        errorMessage.style.display = 'none';
-        confirmPassword.classList.remove('input-error');
-        return true;
-    }
-
-    // Comparar valores
-    if (password.value !== confirmPassword.value) {
-        errorMessage.style.display = 'block'; // Muestra el mensaje
-        confirmPassword.classList.add('input-error'); // Borde rojo
-        return false;
-    } else {
-        errorMessage.style.display = 'none'; // Oculta el mensaje
-        confirmPassword.classList.remove('input-error');
-        return true;
-    }
-}
-
-// Validar en tiempo real mientras el usuario escribe
-password.addEventListener('input', validarContrasenas);
-confirmPassword.addEventListener('input', validarContrasenas);
-
-// Evitar que el formulario se envíe si no coinciden
-form.addEventListener('submit', function(event) {
-    if (password.value !== confirmPassword.value) {
-        event.preventDefault(); // Detiene el envío del formulario
-        alert('Por favor, asegúrate de que las contraseñas coincidan.');
-    }
-});
-
-
-
+//TODO Arreglar logica de login y register
