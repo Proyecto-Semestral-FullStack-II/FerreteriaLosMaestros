@@ -83,7 +83,7 @@
                                title="Debe ingresar exactamente 9 numeros"
                                oninput="this.value=this.value.replace(/[^0-9]/g,'')" required><!--Ingreso solo de numeros-->
                     </div>
-                    <div class="form-group">
+                    <div class="combo-box">
                         <label for="region">Regíon:</label>
                         <select id="region" name="region" required> <!--Combo box de Las Regiones-->
                             <option value="" disabled selected>---Seleccione una región---</option>
@@ -111,12 +111,11 @@
                             <option value="" disabled selected>---Seleccione una Comuna---</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn-login">Registrarse</button>
+                    <br>
+
+                    <button type="submit" class="btn-register">Registrarse</button>
                 </form>
-                <!--<div class="login-footer">
-                    <p>¿No tienes una cuenta?<a href="register.html">Registrate aqui</a></p>
-                </div>-->
-                <script src="js/script.js"></script>
+                <script src="js/auth.js"></script>
             </div>
         </main>
     </div>
