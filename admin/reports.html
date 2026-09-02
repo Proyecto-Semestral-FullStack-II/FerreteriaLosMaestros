@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes | LosMaestros</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Estilos de la Ferretería -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/png" href="/media/montain.jfif">
+</head>
+<body>
+
+<!-- Barra de Navegación Administrador -->
+<nav class="navbar-ferreteria">
+    <!-- Logo de la empresa -->
+    <div class="logo">
+        <a href="index-admin.html">
+            <img src="/media/montain.jfif" alt="Icono de montañas" class="logo-icon">
+            <span class="logo-text">Ferreteria Los Maestros</span>
+        </a>
+    </div>
+
+    <!-- Enlaces del Panel de Control -->
+    <ul class="menu-enlaces">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="orders.html">Ordenes</a></li>
+        <li><a href="inventory.html">Inventario</a></li>
+        <li><a href="reports.html">Reportes</a></li>
+        <li><a href="employees.html">Empleados</a></li>
+        <li><a href="customers.html">Clientes</a></li>
+    </ul>
+    <div class="user-actions">
+        <div class="user-dropdown">
+            <a href="#" class="user-trigger">
+                👤 Bienvenido
+            </a>
+        </div>
+    </div>
+</nav>
+<!-- Script de Autenticación y Funcionalidades generales -->
+<script src="../js/auth.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
