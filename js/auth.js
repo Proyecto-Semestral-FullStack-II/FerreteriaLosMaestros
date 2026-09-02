@@ -1,27 +1,98 @@
-//====== LOGICA DE COMBO BOX DE COMUNA DE REGISTER.HTML======
-// Objeto que mapea cada región con sus respectivas comunas
+// ====== LOGICA DE COMBO BOX DE COMUNA DE REGISTER.HTML ======
 const comunasPorRegion = {
     "arica-parinacota": ["Arica", "Camarones", "General Lagos", "Putre"],
     "tarapaca": ["Alto Hospicio", "Camiña", "Colchane", "Huara", "Iquique", "Pica", "Pozo Almonte"],
     "antofagasta": ["Antofagasta", "Calama", "María Elena", "Ollagüe", "San Pedro de Atacama", "Sierra Gorda", "Taltal", "Tocopilla", "Mejillones"],
     "atacama": ["Chañaral", "Diego de Almagro", "Caldera", "Copiapó", "Tierra Amarilla", "Alto del Carmen", "Freirina", "Huasco", "Vallenar"],
     "coquimbo": ["Canela", "Illapel", "Los Vilos", "Salamanca", "Andacollo", "Coquimbo", "La Higuera", "La Serena", "Paihuano", "Vicuña", "Combarbalá", "Monte Patria", "Ovalle", "Punitaqui", "Río Hurtado"],
-    "valparaiso": ["Isla de Pascua", "Calle Larga", "Los Andes", "Rinconada", "San Esteban", "Limache", "Olmué", "Quilpué", "Villa Alemana", "Cabildo", "La Ligua", "Papudo", "Petorca", "Zapallar", "Hijuelas", "La Calera", "Nogales", "Quillota", "San Antonio", "Algarrobo", "El Quisco", "El Tabo", "Cartagena", "Santo Domingo", "Catemu", "Llay-Llay", "Panquehue", "Putaendo", "San Felipe", "Santa María", "Casablanca", "Concón", "Juan Fernández", "Puchuncaví", "Quintero", "Valparaíso", "Viña del Mar"],
-    "metropolitana": ["Santiago", "Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Joaquín", "San Miguel", "San Ramón", "Vitacura", "Puente Alto", "Pirque", "San José de Maipo", "Colina", "Lampa", "Tiltil", "San Bernardo", "Buin", "Calera de Tango", "Paine", "Melipilla", "Alhué", "Curacaví", "María Pinto", "San Pedro", "Talagante", "El Monte", "Isla de Maipo", "Padre Hurtado", "Peñaflor"],
-    "ohiggins": ["Rancagua", "Codegua", "Coinco", "Coltauco", "Doñihue", "Graneros", "Las Cabras", "Machalí", "Malloa", "Mostazal", "Olivar", "Peumo", "Pichidegua", "Quinta de Tilcoco", "Rengo", "Requínoa", "San Vicente", "Pichilemu", "La Estrella", "Litueche", "Marchigüe", "Navidad", "Paredones", "San Fernando", "Chépica", "Chimbarongo", "Lolol", "Nancagua", "Palmilla", "Peralillo", "Placilla", "Pumanque", "Santa Cruz"],
-    "maule": ["Talca", "Constitución", "Curepto", "Empedrado", "Maule", "Pelarco", "Pencahue", "Río Claro", "San Clemente", "San Rafael", "Cauquenes", "Chanco", "Pelluhue", "Curicó", "Hualañé", "Licantén", "Molina", "Rauco", "Romeral", "Sagrada Familia", "Teno", "Vichuquén", "Linares", "Colbún", "Longaví", "Parral", "Retiro", "San Javier", "Villa Alegre", "Yerbas Buenas"],
-    "nuble": ["Chillán", "Bulnes", "Chillán Viejo", "El Carmen", "Pemuco", "Pinto", "Quillón", "San Ignacio", "Yungay", "Quirihue", "Cobquecura", "Coelemu", "Ninhue", "Portezuelo", "Ránquil", "Trehuaco", "San Carlos", "Coihueco", "San Fabián", "San Nicolás"],
-    "biobio": ["Concepción", "Coronel", "Chiguayante", "Florida", "Hualpén", "Hualqui", "Lota", "Penco", "San Pedro de la Paz", "Santa Juana", "Talcahuano", "Tomé", "Lebu", "Arauco", "Cañete", "Contulmo", "Curanilahue", "Los Álamos", "Tirúa", "Los Ángeles", "Antuco", "Cabrero", "Laja", "Mulchén", "Nacimiento", "Negrete", "Quilaco", "Quilleco", "San Rosendo", "Santa Bárbara", "Tucapel", "Yumbel", "Alto Biobío"],
-    "araucania": ["Temuco", "Carahue", "Cunco", "Curarrehue", "Freire", "Galvarino", "Gorbea", "Lautaro", "Loncoche", "Melipeuco", "Nueva Imperial", "Padre Las Casas", "Perquenco", "Pitrufquén", "Pucón", "Saavedra", "Teodoro Schmidt", "Toltén", "Vilcún", "Villarrica", "Cholchol", "Angol", "Collipulli", "Curacautín", "Ercilla", "Lonquimay", "Los Sauces", "Lumaco", "Purén", "Renaico", "Traiguén", "Victoria"],
-    "los-rios": ["Valdivia", "Corral", "Lanco", "Los Lagos", "Máfil", "Mariquina", "Paillaco", "Panguipulli", "La Unión", "Futrono", "Lago Ranco", "Río Bueno"],
-    "los-lagos": ["Puerto Montt", "Calbuco", "Cochamó", "Fresia", "Frutillar", "Los Muermos", "Llanquihue", "Maullín", "Puerto Varas", "Castro", "Ancud", "Chonchi", "Curaco de Vélez", "Dalcahue", "Puqueldón", "Queilén", "Quellón", "Quemchi", "Quinchao", "Osorno", "Puerto Octay", "Purranque", "Puyehue", "Río Negro", "San Juan de la Costa", "San Pablo", "Chaitén", "Futaleufú", "Hualaihué", "Palena"],
-    "aysen": ["Coyhaique", "Lago Verde", "Aisén", "Cisnes", "Guaitecas", "Cochrane", "O'Higgins", "Tortel", "Chile Chico", "Río Ibáñez"],
-    "magallanes": ["Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos", "Antártica", "Porvenir", "Primavera", "Timaukel", "Natales", "Torres del Paine"]
+    "valparaiso": ["Isla de Pascua", "Calle Larga", "Los Andes", "Rinconada", "San Esteban", "Limache", "Olmué", "Quilpué", "Villa Alemana", "Cabildo", "La Ligua", "Papudo", "Petorca", "Zapallar", "Hijuelas"],
+    "metropolitana": ["Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "Santiago", "San Joaquín", "San Miguel", "San Ramón", "Vitacura"],
+    "ohiggins": ["Rancagua", "Machalí", "Graneros", "Rengo", "San Fernando", "Pichilemu"],
+    "maule": ["Talca", "Curicó", "Linares", "Constitución", "Cauquenes"],
+    "nuble": ["Chillán", "Chillán Viejo", "Bulnes", "San Carlos"],
+    "biobio": ["Concepción", "Talcahuano", "San Pedro de la Paz", "Chiguayante", "Los Ángeles"],
+    "araucania": ["Temuco", "Padre Las Casas", "Villarrica", "Pucón", "Angol"],
+    "los-rios": ["Valdivia", "La Unión", "Río Bueno", "Panguipulli"],
+    "los-lagos": ["Puerto Montt", "Puerto Varas", "Osorno", "Castro", "Ancud"],
+    "aysen": ["Coyhaique", "Puerto Aysén", "Chile Chico"],
+    "magallanes": ["Punta Arenas", "Puerto Natales", "Porvenir"]
 };
+
+// ====== CARGA DE DATOS DE PRUEBA EN 'usuarios_db' ======
+function cargarDatosDePrueba() {
+    const usuariosExistentes = localStorage.getItem('usuarios_db');
+
+    // Si la clave 'usuarios_db' está vacía, crea los usuarios iniciales
+    if (!usuariosExistentes) {
+        const usuariosIniciales = [
+            {
+                nombre: "Administrador",
+                email: "admin@losmaestros.cl",
+                password: "admin123",
+                rol: "admin"
+            },
+            {
+                nombre: "Cliente",
+                email: "cliente@correo.com",
+                password: "user123",
+                rol: "cliente"
+            }
+        ];
+
+        localStorage.setItem('usuarios_db', JSON.stringify(usuariosIniciales));
+    }
+}
+
+function cerrarSesion() {
+    // Elimina los datos guardados de la sesión
+    localStorage.removeItem("adminToken");
+    localStorage.removeItem("usuario");
+    sessionStorage.clear();
+
+    // Redirige fuera de la carpeta /admin/ hacia la raíz principal (index.html)
+    window.location.href = "../index.html";
+}
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // --- LÓGICA DE REGIONALIZACIÓN (Si existen los select) ---
+    // Cargar usuarios iniciales en 'usuarios_db'
+    cargarDatosDePrueba();
+
+    // ACTUALIZAR NOMBRE EN LA BARRA DE NAVEGACIÓN Y MENÚ DESPLEGABLE
+    function actualizarNavUsuario() {
+        const userTrigger = document.querySelector('.user-trigger');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        const usuarioLogueado = JSON.parse(localStorage.getItem('usuario_logueado'));
+
+        if (usuarioLogueado && userTrigger) {
+            // Muestra el nombre registrado o el correo
+            const nombreMostrar = usuarioLogueado.nombre || usuarioLogueado.email.split('@')[0];
+            userTrigger.innerHTML = `👤 ${nombreMostrar}`;
+
+            if (dropdownContent) {
+                let opcionesExtra = '';
+                dropdownContent.innerHTML = `
+                    ${opcionesExtra}
+                    <a href="#" id="btn-logout" style="color: #d32f2f;">Cerrar sesión</a>
+                `;
+
+                // Listener para el botón Cerrar Sesión
+                const btnLogout = document.getElementById('btn-logout');
+                if (btnLogout) {
+                    btnLogout.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        localStorage.removeItem('usuario_logueado');
+                        alert('Has cerrado sesión correctamente.');
+                        window.location.href = 'index.html'; // Redirige a la portada pública
+                    });
+                }
+            }
+        }
+    }
+
+    actualizarNavUsuario();
+
+    // --- LÓGICA DE COMBOBOX REGION / COMUNA ---
     const selectRegion = document.getElementById("region");
     const selectComuna = document.getElementById("comuna");
 
@@ -44,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- LÓGICA DE REGISTRO (register.html) ---
+    // --- LÓGICA DE REGISTRO DE USUARIOS (GUARDA EN usuarios_db) ---
     const registerForm = document.getElementById("register-form");
     if (registerForm) {
         const password = document.getElementById("password");
@@ -79,30 +150,33 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            const email = document.getElementById("reg-email").value;
-            const pass = password.value;
-            const region = selectRegion ? selectRegion.value : '';
-            const comuna = selectComuna ? selectComuna.value : '';
+            const nameInput = document.getElementById("name") ? document.getElementById("name").value : '';
+            const emailInput = document.getElementById("reg-email").value;
+            const passInput = password.value;
+            const regionInput = selectRegion ? selectRegion.value : '';
+            const comunaInput = selectComuna ? selectComuna.value : '';
 
-            // Obtener lista previa o inicializar
+            // Obtener el arreglo existente guardado bajo la clave 'usuarios_db'
             let usuarios = JSON.parse(localStorage.getItem('usuarios_db')) || [];
 
-            // Validar si el correo ya existe
-            const existe = usuarios.find(u => u.email === email);
+            // Verificar si el correo electrónico ya está registrado
+            const existe = usuarios.find(u => u.email === emailInput);
             if (existe) {
                 alert('El correo electrónico ya se encuentra registrado.');
                 return;
             }
 
-            // Crear objeto de usuario
+            // Crear el nuevo usuario cliente
             const nuevoUsuario = {
-                email: email,
-                password: pass,
-                region: region,
-                comuna: comuna
+                nombre: nameInput,
+                email: emailInput,
+                password: passInput,
+                region: regionInput,
+                comuna: comunaInput,
+                rol: "cliente" // usuario registrado por la web es cliente por defecto
             };
 
-            // Guardar usuario en localStorage
+            // Agregar al arreglo y guardar en la clave 'usuarios_db'
             usuarios.push(nuevoUsuario);
             localStorage.setItem('usuarios_db', JSON.stringify(usuarios));
 
@@ -111,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- LÓGICA DE LOGIN (login.html) ---
+    // --- LÓGICA DE INICIO DE SESIÓN CON REDIRECCIÓN SEGÚN ROL ---
     const loginForm = document.getElementById("login-form");
     if (loginForm) {
         loginForm.addEventListener('submit', function (event) {
@@ -120,21 +194,31 @@ document.addEventListener('DOMContentLoaded', function () {
             const emailInput = document.getElementById("email").value;
             const passwordInput = document.getElementById("password").value;
 
-            // Obtener usuarios guardados en localStorage
+            // Leer los usuarios guardados en 'usuarios_db'
             const usuarios = JSON.parse(localStorage.getItem('usuarios_db')) || [];
 
-            // Verificar credenciales
+            // Buscar coincidencia de credenciales
             const usuarioValido = usuarios.find(u => u.email === emailInput && u.password === passwordInput);
 
             if (usuarioValido) {
-                // Guardar la sesión activa
-                localStorage.setItem('usuario_logueado', JSON.stringify({ email: usuarioValido.email }));
-                alert('¡Inicio de sesión correcto!');
-                window.location.href = 'index.html'; // Redirige al menú principal
+                // Guardar la sesión activa del usuario
+                localStorage.setItem('usuario_logueado', JSON.stringify({
+                    nombre: usuarioValido.nombre,
+                    email: usuarioValido.email,
+                    rol: usuarioValido.rol
+                }));
+
+                alert(`¡Bienvenido ${usuarioValido.nombre || ''}!`);
+
+                // REDIRECCIÓN SEGÚN ROL
+                if (usuarioValido.rol === 'admin') {
+                    window.location.href = 'admin/index-admin.html'; // Redirige a la vista de Administrador
+                } else {
+                    window.location.href = 'index.html'; // Redirige al inicio de Clientes
+                }
             } else {
                 alert('Correo electrónico o contraseña incorrectos.');
             }
         });
     }
 });
-//TODO Arreglar logica de login y register
