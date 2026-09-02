@@ -1,10 +1,10 @@
+/* Cuerpo de la pagina*/
 body{
     background-color: #c5caa3;
     padding-top: 150px;
     justify-content: center; /* Centra horizontalmente */
     align-items: center;
 }
-
 /*previene que la imagen se salga de sus contenedores*/
 img{
     max-width: 100%;
