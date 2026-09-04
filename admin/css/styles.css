@@ -216,22 +216,28 @@ nav ul li a:hover {
     font-weight: bold;
 }
 
-/* --- ESTILOS DEL BANNER PRINCIPAL --- */
-
-.banner-container {
-    width: 100%; /* El contenedor ocupa todo el ancho de la pantalla */
-    display: flex;
-    justify-content: center; /* Centra la imagen horizontalmente */
-    margin-top: 10px; /* Un pequeño respiro de espacio entre el buscador y el banner */
-    margin-bottom: 40px; /* Espacio antes del siguiente contenido de la página */
-    padding: 0 20px; /* Margen a los lados para que la imagen no pegue a los bordes de la ventana */
-    box-sizing: border-box; /* Asegura que el padding no rompa el ancho total */
+.footer-ferreteria {
+    background-color: #272a18; /* Tonos verdes de tu proyecto */
+    color: white;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
 }
 
-.banner-image {
-    width: 100%; /* La imagen intentará llenar su contenedor */
-    max-width: 1200px; /* ¡IMPORTANTE! Límite de ancho para que no se vea gigante en pantallas muy grandes */
-    height: auto; /* Mantiene la proporción original de la imagen (no se achatará ni se estirará) */
-    border-radius: 8px; /* Le da unos bordes ligeramente redondeados y modernos */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Una sombra sutil para darle profundidad, como en tu referencia */
+.columna-info img{
+    height: 80px; /* Ajusta este número para que la montaña encaje con el tamaño del texto */
+    width: auto;
+
+}
+.columna-info li a{
+    color: white;
+
+
+}
+
+.footer-columnas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenido */
 }
