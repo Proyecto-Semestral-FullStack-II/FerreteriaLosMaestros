@@ -3,92 +3,78 @@ body{
     padding-top: 150px;
 }
 
-/*previene que la imagen se salga de sus contenedores*/
-img{
-    max-width: 100%;
-    height: auto;
-    display: block;/*Elimina el espacio en blanco no deseado*/
-}
-
-.producto-imagen{
-    width: 100%;
-    height: 250px;
-    object-fit: cover;/* Recorta la imagen para llenar el espacio*/
-    object-position: center;/*Centra el enfoque de la imagen*/
-}
-
 .menu-enlaces {
-    display: flex;
-    list-style-type: none;
+  display: flex;
+  list-style-type: none;
 }
 
 
 .menu-enlaces a {
-    text-decoration: none;
-    padding: 15px 20px;
+  text-decoration: none;
+  padding: 15px 20px;
 }
 
 .navbar-ferreteria a {
-    padding: 15px 20px;
+ padding: 15px 20px;
 }
 
 /*LOGO*/
 .logo a {
-
-    display: flex;
-    align-items: center; /* ¡IMPORTANTE! Alínea verticalmente la imagen y el texto entre sí */
-    gap: 15px; /* Espacio horizontal agradable entre la imagen y la palabra "Los Maestros" */
-    text-decoration: none; /* Sin subrayado */
-    margin-left: 20px; /* Margen desde el borde izquierdo */
-
+  
+  display: flex;
+  align-items: center; /* ¡IMPORTANTE! Alínea verticalmente la imagen y el texto entre sí */
+  gap: 15px; /* Espacio horizontal agradable entre la imagen y la palabra "Los Maestros" */
+  text-decoration: none; /* Sin subrayado */
+  margin-left: 20px; /* Margen desde el borde izquierdo */
+  
 }
 .logo-icon {
-    height: 80px; /* Ajusta este número para que la montaña encaje con el tamaño del texto */
-    width: auto; /* Mantiene la proporción de la imagen */
+  height: 80px; /* Ajusta este número para que la montaña encaje con el tamaño del texto */
+  width: auto; /* Mantiene la proporción de la imagen */
 }
 
 .logo-text {
-    color: white; /* O tu color preferido rústico */
-    font-size: 26px;
-    font-weight: bold;
-
+  color: white; /* O tu color preferido rústico */
+  font-size: 26px;
+  font-weight: bold;
+  
 }
 
 /* Estilo general del menú */
 nav {
-    background-color: #272a18;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 100000;
-    padding: 25px 0;
-    display: flex;
-    align-items: center; /* Alinea verticalmente logo, enlaces y buscador */
-    justify-content: flex-start; /* Todo empieza a la izquierda */
+ background-color: #272a18;
+ position: fixed;
+ width: 100%;
+ top: 0;
+ z-index: 100000;
+ padding: 25px 0;
+ display: flex;
+ align-items: center; /* Alinea verticalmente logo, enlaces y buscador */
+ justify-content: flex-start; /* Todo empieza a la izquierda */
 }
 /* Estilo de la lista */
 nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ display: flex;
+ justify-content: center;
 }
 /* Estilo de los elementos de la lista */
 nav ul li {
-    margin: 0 5px;
+ margin: 0 5px;
 }
 /* Estilo de los enlaces */
 nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    padding: 8px 10px;
+ text-decoration: none;
+ color: white;
+ font-size: 16px;
+ padding: 8px 10px;
 }
 /* Efecto hover */
 nav ul li a:hover {
-    background-color: #5c6138;
-    border-radius: 5px;
+ background-color: #5c6138;
+  border-radius: 5px;
 }
 
 /* --- ESTILOS DEL BUSCADOR EXTERNO --- */
@@ -232,4 +218,136 @@ nav ul li a:hover {
     height: auto; /* Mantiene la proporción original de la imagen (no se achatará ni se estirará) */
     border-radius: 8px; /* Le da unos bordes ligeramente redondeados y modernos */
     box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Una sombra sutil para darle profundidad, como en tu referencia */
+}
+/* --- ESTILOS DE LA TARJETA --- */
+.card {
+    width: 300px; /* Define el ancho exacto de la tarjeta. Puedes agrandarlo a 350px si quieres */
+    background-color: white;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px; /* Redondea las esquinas */
+    overflow: hidden; /* Evita que la imagen se salga de los bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Le da una sombra elegante */
+    margin: 20px; /* Le da espacio por fuera para que no se pegue a otras cosas */
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para la imagen dentro de la tarjeta */
+.card img {
+    width: 100%; /* Obliga a la imagen a ocupar todo el ancho de la tarjeta */
+    height: 200px; /* Le da una altura fija */
+    object-fit: contain; /* Evita que la imagen se estire o deforme */
+    background-color: #fff; /* Fondo blanco por si la imagen es pequeña */
+    border-bottom: 1px solid #eee; /* Línea sutil que separa la foto del texto */
+}
+
+/* Espacio interior para el texto */
+.card-content {
+    padding: 20px; /* Crea un "colchón" interior para que el texto no toque los bordes */
+}
+
+.card-content h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 18px;
+}
+
+.card-content p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Estilo para el botón "Leer más" */
+.card .btn {
+    display: inline-block; /* Permite darle margen y padding al enlace */
+    background-color: #a4a982; /* Rojo ferretero */
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.card .btn:hover {
+    background-color: #b71c1c;
+}
+
+.vitrina-productos {
+    display: flex;             /* Coloca las tarjetas en una fila */
+    flex-wrap: wrap;           /* Si no hay espacio en la pantalla, las pasa a la fila de abajo */
+    justify-content: center;   /* Centra las tarjetas horizontalmente */
+    max-width: 1200px;         /* Limita el ancho para que no se estiren demasiado */
+    margin: 0 auto;            /* Centra el contenedor completo en la pantalla */
+}
+
+.frase-productos-destacados{
+    display: flex;
+    color: #333; /* O tu color preferido rústico */
+    font-size: 26px;
+    font-weight: bold;
+    justify-content: center;
+}
+/* --- SECCIÓN DE BANNERS PUBLICITARIOS --- */
+.propagandas {
+    display: flex;
+    justify-content: center; /* Centra los banners horizontalmente */
+    flex-wrap: wrap; /* Permite que bajen si la pantalla es de celular */
+    gap: 30px; /* Espacio ideal entre ambos banners */
+    max-width: 1200px; /* Mantiene el mismo límite de ancho que tu vitrina */
+    margin: 60px auto; /* Lo separa 60px de arriba/abajo y lo centra en la pantalla */
+    padding: 0 20px;
+}
+
+.propagandas img {
+    width: 100%; /* La imagen toma el espacio disponible */
+    max-width: 560px; /* Límite para que quepan 2 perfectas en la pantalla (mitad de 1200px) */
+    height: auto;
+    border-radius: 12px; /* ¡La clave! Bordes bien redondeados como tu referencia */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25); /* Sombra elegante para dar profundidad */
+    cursor: pointer; /* Cambia el cursor a una manito para indicar que son clickeables */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Prepara un efecto suave */
+}
+
+/* Efecto opcional de lujo: al pasar el mouse por encima de la publicidad */
+.propagandas img:hover {
+    transform: translateY(-5px); /* Eleva la imagen un poquito hacia arriba */
+    box-shadow: 0 15px 25px rgba(0,0,0,0.35); /* Hace la sombra más grande */
+}
+
+.footer-ferreteria {
+    background-color: #272a18; /* Tonos verdes de tu proyecto */
+    color: white;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.columna-info img{
+     height: 80px; /* Ajusta este número para que la montaña encaje con el tamaño del texto */
+     width: auto;
+    
+}
+.columna-info li a{
+    color: white;
+    
+  
+}
+
+.footer-columnas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenido */
+}
+
+.columna-enlaces ul {
+    list-style: none;
+    padding: 0;
+}
+
+.columna-enlaces a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
 }
