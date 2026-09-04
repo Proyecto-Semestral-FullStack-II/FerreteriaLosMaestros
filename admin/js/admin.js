@@ -21,3 +21,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+//TODO arreglar logica de cerrar sesion , y direccionamiento al panel administrativo
