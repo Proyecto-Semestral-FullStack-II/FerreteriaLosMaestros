@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // REDIRECCIÓN SEGÚN ROL
                 if (usuarioValido.rol === 'admin') {
-                    window.location.href = 'admin/index-admin.html'; // Redirige a la vista de Administrador
+                    window.location.href = '../admin/admin.html'; // Redirige a la vista de Administrador
                 } else {
                     window.location.href = 'index.html'; // Redirige al inicio de Clientes
                 }
