@@ -107,6 +107,41 @@ select:focus{
     background-color: #505731;
 }
 
+.footer-ferreteria {
+    background-color: #272a18; /* Tonos verdes de tu proyecto */
+    color: white;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.columna-info img{
+    height: 80px; /* Ajusta este número para que la montaña encaje con el tamaño del texto */
+    width: auto;
+}
+
+.columna-info li a{
+    color: white;
+
+}
+.footer-columnas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenido */
+}
+
+.columna-enlaces ul {
+    list-style: none;
+    padding: 0;
+}
+
+.columna-enlaces a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
 .error-text {
     color: #d32f2f;
     font-size: 13px;
