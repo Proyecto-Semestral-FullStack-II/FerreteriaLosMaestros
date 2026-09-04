@@ -1,90 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferreteria Los Maestros</title>
-
-
-<style>
-
 body{
     background-color: #c5caa3;
     padding-top: 150px;
 }
 
+/*previene que la imagen se salga de sus contenedores*/
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;/*Elimina el espacio en blanco no deseado*/
+}
+
+.producto-imagen{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;/* Recorta la imagen para llenar el espacio*/
+    object-position: center;/*Centra el enfoque de la imagen*/
+}
+
 .menu-enlaces {
-  display: flex;
-  list-style-type: none;
+    display: flex;
+    list-style-type: none;
 }
 
 
 .menu-enlaces a {
-  text-decoration: none;
-  padding: 15px 20px;
+    text-decoration: none;
+    padding: 15px 20px;
 }
 
 .navbar-ferreteria a {
- padding: 15px 20px;
+    padding: 15px 20px;
 }
 
 /*LOGO*/
 .logo a {
-  
-  display: flex;
-  align-items: center; /* ¡IMPORTANTE! Alínea verticalmente la imagen y el texto entre sí */
-  gap: 15px; /* Espacio horizontal agradable entre la imagen y la palabra "Los Maestros" */
-  text-decoration: none; /* Sin subrayado */
-  margin-left: 20px; /* Margen desde el borde izquierdo */
-  
+
+    display: flex;
+    align-items: center; /* ¡IMPORTANTE! Alínea verticalmente la imagen y el texto entre sí */
+    gap: 15px; /* Espacio horizontal agradable entre la imagen y la palabra "Los Maestros" */
+    text-decoration: none; /* Sin subrayado */
+    margin-left: 20px; /* Margen desde el borde izquierdo */
+
 }
 .logo-icon {
-  height: 80px; /* Ajusta este número para que la montaña encaje con el tamaño del texto */
-  width: auto; /* Mantiene la proporción de la imagen */
+    height: 80px; /* Ajusta este número para que la montaña encaje con el tamaño del texto */
+    width: auto; /* Mantiene la proporción de la imagen */
 }
 
 .logo-text {
-  color: white; /* O tu color preferido rústico */
-  font-size: 26px;
-  font-weight: bold;
-  
+    color: white; /* O tu color preferido rústico */
+    font-size: 26px;
+    font-weight: bold;
+
 }
 
 /* Estilo general del menú */
 nav {
- background-color: #272a18;
- position: fixed;
- width: 100%;
- top: 0;
- z-index: 100000;
- padding: 25px 0;
- display: flex;
- align-items: center; /* Alinea verticalmente logo, enlaces y buscador */
- justify-content: flex-start; /* Todo empieza a la izquierda */
+    background-color: #272a18;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100000;
+    padding: 25px 0;
+    display: flex;
+    align-items: center; /* Alinea verticalmente logo, enlaces y buscador */
+    justify-content: flex-start; /* Todo empieza a la izquierda */
 }
 /* Estilo de la lista */
 nav ul {
- list-style: none;
- margin: 0;
- padding: 0;
- display: flex;
- justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
 }
 /* Estilo de los elementos de la lista */
 nav ul li {
- margin: 0 5px;
+    margin: 0 5px;
 }
 /* Estilo de los enlaces */
 nav ul li a {
- text-decoration: none;
- color: white;
- font-size: 16px;
- padding: 8px 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 10px;
 }
 /* Efecto hover */
 nav ul li a:hover {
- background-color: #5c6138;
-  border-radius: 5px;
+    background-color: #5c6138;
+    border-radius: 5px;
 }
 
 /* --- ESTILOS DEL BUSCADOR EXTERNO --- */
@@ -229,76 +233,3 @@ nav ul li a:hover {
     border-radius: 8px; /* Le da unos bordes ligeramente redondeados y modernos */
     box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Una sombra sutil para darle profundidad, como en tu referencia */
 }
-
-
-
-</style>
-
-</head>
-
-<body>
-    <div>
-    <nav class="navbar-ferreteria">
-      <div class="logo">
-        <a href="index.html">
-            <img src="montain.jfif" alt="Icono de montañas" class="logo-icon">
-            <span class="logo-text"> Ferreteria Los Maestros</span>
-        </a>
-      </div>
-      <ul class="menu-enlaces">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="contacto.html">Contactanos</a></li>
-        
-      </ul>
-      <!-- Cierre de tu lista de enlaces actual -->
-      </ul>
-      
-      <!-- NUEVO: Contenedor de Acciones de Usuario (Lado Derecho) -->
-      <div class="user-actions">
-        
-        <!-- 1. El menú desplegable de "Bienvenido" -->
-        <div class="user-dropdown">
-          <a href="#" class="user-trigger">
-            👤 Bienvenido
-          </a>
-          <!-- La caja blanca que estará oculta -->
-          <div class="dropdown-content">
-            <a href="registro.html">Registrarse</a>
-            <a href="login.html">Iniciar sesión</a>
-          </div>
-        </div>
-
-        <!-- 2. El botón del Carrito de Compras -->
-        <a href="carrito.html" class="cart-link">
-          <span class="cart-badge">0</span>
-          🛒 Carrito
-        </a>
-
-      </div>
-    </nav> <!-- Aquí se cierra tu nav verde -->
-    
-
-    </nav>
-
-    <div class="search-container">
-        <form action="/buscar" method="get">
-        <input type="text" name="q" class="search-input" placeholder="Buscar...">
-        <button type="submit" class="search-button">Buscar producto</button>
-        </form>
-    </div>
-
-    <div class="banner-container">
-        <!-- Reemplaza el src con el nombre exacto de tu archivo -->
-        <img src="baner.jfif" alt="Ofertas imperdibles para el maestro en casa" class="banner-image">
-    </div>
-
-    </div>
-
-    
-    
-    
-</body>
-</html>

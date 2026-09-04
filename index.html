@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferreteria Los Maestros</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+    <div>
+    <nav class="navbar-ferreteria">
+      <div class="logo">
+        <a href="index.html">
+            <img src="assets/img/montain.jfif" alt="Icono de montañas" class="logo-icon">
+            <span class="logo-text"> Ferreteria Los Maestros</span>
+        </a>
+      </div>
+      <ul class="menu-enlaces">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contactanos</a></li>
+        
+      </ul>
+      <!-- Cierre de tu lista de enlaces actual -->
+      </ul>
+      
+      <!-- NUEVO: Contenedor de Acciones de Usuario (Lado Derecho) -->
+      <div class="user-actions">
+        
+        <!-- 1. El menú desplegable de "Bienvenido" -->
+        <div class="user-dropdown">
+          <a href="#" class="user-trigger">
+            👤 Bienvenido
+          </a>
+          <!-- La caja blanca que estará oculta -->
+          <div class="dropdown-content">
+            <a href="registro.html">Registrarse</a>
+            <a href="login.html">Iniciar sesión</a>
+          </div>
+        </div>
+
+        <!-- 2. El botón del Carrito de Compras -->
+        <a href="carrito.html" class="cart-link">
+          <span class="cart-badge">0</span>
+          🛒 Carrito
+        </a>
+
+      </div>
+    </nav> <!-- Aquí se cierra tu nav verde -->
+    
+
+    </nav>
+
+    <div class="search-container">
+        <form action="/buscar" method="get">
+        <input type="text" name="q" class="search-input" placeholder="Buscar...">
+        <button type="submit" class="search-button">Buscar producto</button>
+        </form>
+    </div>
+
+    <div class="banner-container">
+        <!-- Reemplaza el src con el nombre exacto de tu archivo -->
+        <img src="assets/img/baner.jfif" alt="Ofertas imperdibles para el maestro en casa" class="banner-image">
+    </div>
+
+    </div>
+</body>
+</html>
